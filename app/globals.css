@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: #F6F7F4;
+  --color-surface: #FFFFFF;
+  --color-primary: #7A9B86;
+  --color-primary-dark: #5F7F6D;
+  --color-accent: #3F6B57;
+  --color-text: #1E2421;
+  --color-muted: #5C6A63;
+  --color-border: #E3E8E3;
+  --color-accent-light: #DCE7DF;
+}
+
+.dark {
+  --color-background: #1A1F1C;
+  --color-surface: #242926;
+  --color-primary: #7A9B86;
+  --color-primary-dark: #5F7F6D;
+  --color-accent: #9BC4A8;
+  --color-text: #E8EDEA;
+  --color-muted: #9BA5A0;
+  --color-border: #2F3532;
+  --color-accent-light: #2F3A35;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .prose {
+    @apply text-text;
+  }
+  
+  .prose h1 {
+    @apply text-4xl md:text-5xl font-heading font-semibold mb-6 text-text;
+  }
+  
+  .prose h2 {
+    @apply text-3xl md:text-4xl font-heading font-semibold mb-4 mt-8 text-text;
+  }
+  
+  .prose h3 {
+    @apply text-2xl md:text-3xl font-heading font-medium mb-3 mt-6 text-text;
+  }
+  
+  .prose p {
+    @apply mb-4 leading-relaxed;
+  }
+  
+  .prose ul, .prose ol {
+    @apply mb-4 pl-6;
+  }
+  
+  .prose li {
+    @apply mb-2;
+  }
+  
+  .prose a {
+    @apply text-primary hover:text-accent underline-offset-2 hover:underline transition-colors;
+  }
+  
+  .prose strong {
+    @apply font-semibold;
+  }
+  
+  .prose code {
+    @apply bg-surface border border-border px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+  
+  .prose pre {
+    @apply bg-surface border border-border p-4 rounded-lg overflow-x-auto mb-4;
+  }
+  
+  .prose img {
+    @apply rounded-lg my-6;
+  }
+}
