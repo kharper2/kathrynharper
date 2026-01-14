@@ -4,11 +4,11 @@ interface TagProps {
 }
 
 export default function Tag({ children, variant = 'default' }: TagProps) {
-  const baseClasses = 'inline-flex items-center px-2.5 py-1 text-xs font-medium rounded border';
+  const baseClasses = 'inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg';
   
   const variantClasses = {
-    default: 'bg-surface border-border text-muted',
-    primary: 'bg-accent-light border-primary text-primary',
+    default: 'bg-section-tint text-text border border-border',
+    primary: 'bg-section-tint text-text border border-border',
   };
 
   return (

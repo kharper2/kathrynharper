@@ -2,8 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -15,21 +14,15 @@ const navItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
-    <nav className="border-b border-border bg-surface/50 backdrop-blur-sm sticky top-0 z-50">
+    <nav className="border-b border-border bg-surface sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
-            className="text-lg font-heading font-medium hover:text-primary transition-colors"
+            className="text-lg font-heading font-medium hover:opacity-70 transition-opacity"
           >
             KH
           </Link>
@@ -47,26 +40,8 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            {mounted && (
-              <button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="text-muted hover:text-text transition-colors text-sm"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? '☀️' : '🌙'}
-              </button>
-            )}
           </div>
           <div className="md:hidden flex items-center gap-4">
-            {mounted && (
-              <button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="text-muted hover:text-text transition-colors text-sm"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? '☀️' : '🌙'}
-              </button>
-            )}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-muted hover:text-text transition-colors"

@@ -3,36 +3,44 @@
 @tailwind utilities;
 
 :root {
-  --color-background: #F6F7F4;
+  --color-background: #FFFFFF;
   --color-surface: #FFFFFF;
-  --color-primary: #7A9B86;
-  --color-primary-dark: #5F7F6D;
-  --color-accent: #3F6B57;
-  --color-text: #1E2421;
-  --color-muted: #5C6A63;
-  --color-border: #E3E8E3;
-  --color-accent-light: #DCE7DF;
+  --color-section-tint: #F7F9FC;
+  --color-text: #000000;
+  --color-muted: #666666;
+  --color-border: #E5E5E5;
+  --color-primary: #000000;
+  --color-secondary-1: #808080;
+  --color-secondary-2: #B3B3B3;
+  --color-secondary-3: #999999;
 }
 
 .dark {
-  --color-background: #1A1F1C;
-  --color-surface: #242926;
-  --color-primary: #7A9B86;
-  --color-primary-dark: #5F7F6D;
-  --color-accent: #9BC4A8;
-  --color-text: #E8EDEA;
-  --color-muted: #9BA5A0;
-  --color-border: #2F3532;
-  --color-accent-light: #2F3A35;
+  --color-background: #000000;
+  --color-surface: #1A1A1A;
+  --color-section-tint: #0F0F0F;
+  --color-text: #FFFFFF;
+  --color-muted: #999999;
+  --color-border: #333333;
+  --color-primary: #FFFFFF;
+  --color-secondary-1: #666666;
+  --color-secondary-2: #4D4D4D;
+  --color-secondary-3: #808080;
 }
 
 @layer base {
   body {
     @apply bg-background text-text font-body antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+  
+  code, pre {
+    @apply font-mono;
   }
 }
 
@@ -66,7 +74,7 @@
   }
   
   .prose a {
-    @apply text-primary hover:text-accent underline-offset-2 hover:underline transition-colors;
+    @apply text-text hover:opacity-70 underline-offset-2 hover:underline transition-opacity;
   }
   
   .prose strong {
@@ -74,11 +82,11 @@
   }
   
   .prose code {
-    @apply bg-surface border border-border px-1.5 py-0.5 rounded text-sm font-mono;
+    @apply bg-section-tint border border-border px-1.5 py-0.5 rounded text-sm font-mono;
   }
   
   .prose pre {
-    @apply bg-surface border border-border p-4 rounded-lg overflow-x-auto mb-4;
+    @apply bg-section-tint border border-border p-4 rounded-lg overflow-x-auto mb-4;
   }
   
   .prose img {

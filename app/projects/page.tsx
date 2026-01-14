@@ -1,8 +1,7 @@
 import { getProjects } from '@/lib/projects';
-import Link from 'next/link';
-import Card from '@/components/Card';
 import SectionHeading from '@/components/SectionHeading';
 import Tag from '@/components/Tag';
+import ProjectCard from '@/components/ProjectCard';
 
 export const metadata = {
   title: 'Projects',
@@ -28,31 +27,20 @@ export default async function ProjectsPage() {
         </p>
       </div>
 
-      {/* Tags filter - client-side filtering would be better, but keeping simple for now */}
-      {allTags.length > 0 && (
-        <div className="mb-12 flex flex-wrap gap-2">
-          {allTags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </div>
-      )}
-
-      {/* Projects grid */}
-      <div className="grid gap-6 md:gap-8 md:grid-cols-2">
+      {/* Projects list */}
+      <div className="space-y-0">
         {projects.map((project) => (
-          <Card key={project.slug} href={`/projects/${project.slug}`}>
-            <h3 className="text-xl font-heading font-medium mb-2">
-              {project.title}
-            </h3>
-            <p className="text-muted mb-4">{project.description}</p>
-            {project.tags && project.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <Tag key={tag}>{tag}</Tag>
-                ))}
-              </div>
-            )}
-          </Card>
+          <ProjectCard
+            key={project.slug}
+            slug={project.slug}
+            title={project.title}
+            description={project.description}
+            tags={project.tags}
+            year={project.year || project.date?.split('-')[0]}
+            techStack={project.techStack}
+            links={project.links}
+            banner={project.banner || project.images?.[0]}
+          />
         ))}
       </div>
     </div>

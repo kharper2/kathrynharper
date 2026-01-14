@@ -1,5 +1,7 @@
 import SectionHeading from '@/components/SectionHeading';
-import Button from '@/components/Button';
+import EmailIcon from '@/components/icons/EmailIcon';
+import GitHubIcon from '@/components/icons/GitHubIcon';
+import LinkedInIcon from '@/components/icons/LinkedInIcon';
 
 export const metadata = {
   title: 'About',
@@ -44,19 +46,32 @@ export default function AboutPage() {
 
       <section>
         <SectionHeading>Contact</SectionHeading>
-        <div className="mt-8 flex flex-wrap gap-4">
-          <Button href="mailto:kathryn@example.com" variant="primary">
-            Email
-          </Button>
-          <Button href="https://github.com" variant="secondary" external>
-            GitHub
-          </Button>
-          <Button href="https://linkedin.com" variant="secondary" external>
-            LinkedIn
-          </Button>
-          <Button href="/cv.pdf" variant="secondary" external>
-            CV
-          </Button>
+        <div className="mt-8 flex items-center gap-6">
+          <a
+            href="mailto:kathryn@example.com"
+            className="text-muted hover:text-text transition-colors"
+            aria-label="Email"
+          >
+            <EmailIcon className="w-6 h-6" />
+          </a>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted hover:text-text transition-colors"
+            aria-label="GitHub"
+          >
+            <GitHubIcon className="w-6 h-6" />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted hover:text-text transition-colors"
+            aria-label="LinkedIn"
+          >
+            <LinkedInIcon className="w-6 h-6" />
+          </a>
         </div>
       </section>
     </div>

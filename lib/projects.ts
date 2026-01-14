@@ -6,8 +6,10 @@ export interface Project {
   slug: string;
   title: string;
   description: string;
+  order?: number;
   tags?: string[];
   date?: string;
+  year?: string;
   problem?: string;
   approach?: string;
   results?: string;
@@ -17,6 +19,9 @@ export interface Project {
     url: string;
   }[];
   images?: string[];
+  banner?: string; // Main banner/visual image for the card
+  codeSnippet?: string;
+  preview?: string;
 }
 
 const projectsDirectory = path.join(process.cwd(), 'content/projects');
@@ -42,6 +47,12 @@ export async function getProjects(): Promise<Project[]> {
     });
 
   return projects.sort((a, b) => {
+    // Sort by order if available, otherwise by date
+    if (a.order !== undefined && b.order !== undefined) {
+      return a.order - b.order;
+    }
+    if (a.order !== undefined) return -1;
+    if (b.order !== undefined) return 1;
     const dateA = a.date ? new Date(a.date).getTime() : 0;
     const dateB = b.date ? new Date(b.date).getTime() : 0;
     return dateB - dateA;

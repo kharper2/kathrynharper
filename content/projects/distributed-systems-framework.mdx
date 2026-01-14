@@ -1,17 +1,30 @@
 ---
 title: Distributed Systems Framework
 description: A high-performance framework for building scalable distributed applications with built-in fault tolerance and load balancing.
-tags: [Systems, Web, Backend]
-date: 2023-11-20
-problem: Building distributed systems requires significant boilerplate code for handling failures, load balancing, and state management. Existing solutions are either too opinionated or lack critical features.
-approach: Designed a framework that abstracts common distributed systems patterns while remaining flexible. Implemented a consensus algorithm for state synchronization and a pluggable load balancing system. Built comprehensive monitoring and observability tools.
-results: Reduced development time for distributed applications by 40%. The framework handles 10M+ requests per day with 99.9% uptime. Adopted by 3 internal teams.
+order: 99
+year: 2023
 techStack: [Go, gRPC, Kubernetes, Prometheus, Redis]
 links:
   - label: GitHub
     url: https://github.com/example/distributed-framework
   - label: Documentation
     url: https://example.com/docs
+banner: /projects/distributed-banner.jpg
+codeSnippet: |
+  func (s *Service) HandleRequest(ctx context.Context, req *Request) {
+      // Circuit breaker pattern
+      if s.circuitBreaker.IsOpen() {
+          return ErrServiceUnavailable
+      }
+      
+      // Retry with exponential backoff
+      return s.retryWithBackoff(ctx, func() error {
+          return s.processRequest(ctx, req)
+      })
+  }
+problem: Building distributed systems requires significant boilerplate code for handling failures, load balancing, and state management. Existing solutions are either too opinionated or lack critical features.
+approach: Designed a framework that abstracts common distributed systems patterns while remaining flexible. Implemented a consensus algorithm for state synchronization and a pluggable load balancing system. Built comprehensive monitoring and observability tools.
+results: Reduced development time for distributed applications by 40%. The framework handles 10M+ requests per day with 99.9% uptime. Adopted by 3 internal teams.
 ---
 
 A framework designed to simplify building robust distributed systems.

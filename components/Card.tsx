@@ -8,7 +8,7 @@ interface CardProps {
 
 export default function Card({ href, children, className = '' }: CardProps) {
   const baseClasses =
-    'block p-6 bg-surface border border-border rounded-lg hover:border-primary transition-all duration-200';
+    'block p-6 bg-surface border border-border rounded-lg hover:border-text transition-all duration-200';
 
   if (href) {
     return (

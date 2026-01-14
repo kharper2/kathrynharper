@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Fraunces } from 'next/font/google';
+import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -11,9 +11,9 @@ const inter = Inter({
   display: 'swap',
 });
 
-const fraunces = Fraunces({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-fraunces',
+  variable: '--font-plus-jakarta',
   display: 'swap',
 });
 
@@ -40,7 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${fraunces.variable}`}>
+      <body className={`${plusJakartaSans.variable} ${inter.variable}`}>
         <ThemeProvider>
           <div className="min-h-screen flex flex-col">
             <Navbar />
