@@ -10,10 +10,10 @@ export default function ExperienceItem({ entry }: ExperienceItemProps) {
     <div className="border-b border-border py-8 last:border-0">
       <div className="flex gap-8">
         {/* Left: Icon */}
-        <div className="flex-shrink-0 flex items-start justify-center w-20">
+        <div className="flex-shrink-0 flex items-center justify-center w-24">
           <CompanyIcon 
             icon={entry.icon} 
-            className={entry.org?.toLowerCase().includes('amazon') || entry.org?.toLowerCase().includes('aws') ? 'w-24 h-24' : 'w-14 h-14'}
+            className={entry.org?.toLowerCase().includes('amazon') || entry.org?.toLowerCase().includes('aws') ? 'w-32 h-32' : 'w-14 h-14'}
           />
         </div>
 
