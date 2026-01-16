@@ -1,8 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getProjects } from '@/lib/projects';
 import { getExperience } from '@/lib/experience';
 import { getCommunity } from '@/lib/community';
-import Card from '@/components/Card';
 import Tag from '@/components/Tag';
 import SectionHeading from '@/components/SectionHeading';
 import ProfilePhoto from '@/components/ProfilePhoto';
@@ -12,17 +12,17 @@ import LinkedInIcon from '@/components/icons/LinkedInIcon';
 import type { Metadata } from 'next';
 
 const highlightedCourses = [
-  { name: 'Big Data Algorithms', code: 'COMPSCI 2241', school: 'Harvard' },
-  { name: 'Data Structures and Algorithms', code: 'COMPSCI 124', school: 'Harvard' },
-  { name: 'Distributed Computing', code: 'COMPSCI 262', school: 'Harvard' },
-  { name: 'High Performance Computing', code: 'COMPSCI 205', school: 'Harvard' },
-  { name: 'Machine Learning', code: 'COMPSCI 181', school: 'Harvard' },
-  { name: 'Quantum Learning Theory', code: 'COMPSCI 2233/PHYSICS 272', school: 'Harvard' },
+  { name: 'Big Data Algorithms', code: 'COMPSCI 2241' },
+  { name: 'Data Structures and Algorithms', code: 'COMPSCI 124' },
+  { name: 'Distributed Computing', code: 'COMPSCI 262' },
+  { name: 'High Performance Computing', code: 'COMPSCI 205' },
+  { name: 'Machine Learning', code: 'COMPSCI 181' },
+  { name: 'Quantum Learning Theory', code: 'COMPSCI 2233/PHYSICS 272' },
 ];
 
 export const metadata: Metadata = {
   title: 'Home',
-  description: 'Kathryn Harper - Building impactful technology at the intersection of machine learning, systems, and human-centered design.',
+  description: 'Kathryn Harper — CS at Harvard. ML/AI, systems, and decision-making.',
 };
 
 export default async function Home() {
@@ -30,9 +30,16 @@ export default async function Home() {
   const experience = await getExperience();
   const community = await getCommunity();
 
-  const selectedProjects = projects.slice(0, 3);
-  const selectedExperience = experience.slice(0, 5);
-  const selectedCommunity = community.slice(0, 2);
+  // Get specific highlighted items
+  const highlightedExperience = experience.filter(e => 
+    e.slug === 'mit-ccrg' || e.slug === 'harvard-seas-cs124' || e.slug === 'aws-incident-tooling'
+  ).sort((a, b) => a.order - b.order);
+
+  const selectedProjects = projects.filter(p => 
+    p.slug === 'cubesat-flight-software' || p.slug === 'graphene' || p.slug === 'taco'
+  ).sort((a, b) => a.order - b.order);
+
+  const hackHarvardChina = community.find(c => c.slug === 'hackharvard-china');
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
@@ -49,21 +56,22 @@ export default async function Home() {
             <h1 className="text-5xl md:text-7xl font-heading font-semibold mb-6 text-text">
               Kathryn Harper
             </h1>
-            <p className="text-xl md:text-2xl text-muted mb-8 max-w-2xl leading-relaxed">
-              Building impactful technology at the intersection of machine learning, systems, and human-centered design.
+            <p className="text-lg text-neutral-600 mb-8 leading-relaxed">
+              <span className="block">ML/AI, systems, and decision-making.</span>
+              <span className="block">Off-hours: card games and Rubik's cubes.</span>
             </p>
             
             {/* Social Icons */}
             <div className="flex items-center gap-6">
               <a
-                href="mailto:kathryn@example.com"
+                href="mailto:kharper@college.harvard.edu"
                 className="text-muted hover:text-text transition-colors"
                 aria-label="Email"
               >
                 <EmailIcon className="w-6 h-6" />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/kharper2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted hover:text-text transition-colors"
@@ -72,7 +80,7 @@ export default async function Home() {
                 <GitHubIcon className="w-6 h-6" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/harperkathryn/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted hover:text-text transition-colors"
@@ -83,6 +91,66 @@ export default async function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Highlighted Experience */}
+      <section className="mb-20 md:mb-28">
+        <div className="flex items-center justify-between mb-8">
+          <SectionHeading>Highlighted Experience</SectionHeading>
+          <Link
+            href="/experience"
+            className="text-muted hover:text-text text-sm transition-colors"
+          >
+            View all →
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 mb-3">
+              <Image src="/logos/MIT-logo.png" alt="MIT" width={64} height={64} className="object-contain" />
+            </div>
+            <p className="text-sm font-medium">ML Research at MIT</p>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 mb-3">
+              <Image src="/logos/seas.png" alt="Harvard SEAS" width={64} height={64} className="object-contain" />
+            </div>
+            <p className="text-sm font-medium">Harvard Teaching Fellow</p>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <div className="w-20 h-16 mb-3">
+              <Image src="/logos/Amazon-Smile-Logo-PNG-Photos.png" alt="AWS" width={80} height={64} className="object-contain" />
+            </div>
+            <p className="text-sm font-medium">AWS Intern</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent Community */}
+      <section className="mb-20 md:mb-28">
+        <div className="flex items-center justify-between mb-8">
+          <SectionHeading>Recent Community</SectionHeading>
+          <Link
+            href="/community"
+            className="text-muted hover:text-text text-sm transition-colors"
+          >
+            View all →
+          </Link>
+        </div>
+        {hackHarvardChina && (
+          <div className="border-b border-border pb-6">
+            <h3 className="text-lg font-heading font-medium mb-1">
+              {hackHarvardChina.title}
+            </h3>
+            <p className="text-sm text-muted mb-2">
+              {hackHarvardChina.dates} · {hackHarvardChina.location}
+            </p>
+            {hackHarvardChina.impact && (
+              <p className="text-sm font-medium text-neutral-700 mb-2">{hackHarvardChina.impact}</p>
+            )}
+            <p className="text-sm text-muted">{hackHarvardChina.summary}</p>
+          </div>
+        )}
       </section>
 
       {/* Selected Projects */}
@@ -96,88 +164,29 @@ export default async function Home() {
             View all →
           </Link>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {selectedProjects.map((project) => (
-            <Card key={project.slug} href={`/projects/${project.slug}`}>
-              <h3 className="text-lg font-heading font-semibold mb-2">
-                {project.title}
-              </h3>
-              <p className="text-muted text-sm mb-3 line-clamp-3">
-                {project.description}
-              </p>
-              {(project.techStack || project.tags) && (
-                <div className="flex flex-wrap gap-2">
-                  {(project.techStack || project.tags || []).slice(0, 3).map((tag) => (
-                    <Tag key={tag}>{tag}</Tag>
-                  ))}
+            <div key={project.slug} className="group">
+              {project.banner && (
+                <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border border-border mb-3">
+                  <Image
+                    src={project.banner}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               )}
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Selected Experience */}
-      <section className="mb-20 md:mb-28">
-        <div className="flex items-center justify-between mb-8">
-          <SectionHeading>Experience</SectionHeading>
-          <Link
-            href="/experience"
-            className="text-muted hover:text-text text-sm transition-colors"
-          >
-            View all →
-          </Link>
-        </div>
-        <div className="space-y-6">
-          {selectedExperience.map((item) => (
-            <div key={item.slug} className="border-b border-border pb-6 last:border-0">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-2">
-                <h3 className="text-lg font-heading font-medium">
-                  {item.role}
-                </h3>
-                <span className="text-sm text-muted mt-1 md:mt-0">
-                  {item.org} ({item.dates})
-                </span>
-              </div>
-              {item.highlights && item.highlights.length > 0 && (
-                <ul className="list-disc list-inside space-y-1 text-sm text-muted mt-2">
-                  {item.highlights.slice(0, 1).map((highlight, i) => (
-                    <li key={i}>{highlight}</li>
-                  ))}
-                </ul>
-              )}
+              <p className="text-sm font-medium text-center">{project.title}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Community Preview */}
+      {/* Highlighted Coursework */}
       <section className="mb-20 md:mb-28">
         <div className="flex items-center justify-between mb-8">
-          <SectionHeading>Community</SectionHeading>
-          <Link
-            href="/community"
-            className="text-muted hover:text-text text-sm transition-colors"
-          >
-            View all →
-          </Link>
-        </div>
-        <div className="space-y-6">
-          {selectedCommunity.map((item, idx) => (
-            <div key={idx} className="border-b border-border pb-6 last:border-0">
-              <h3 className="text-lg font-heading font-medium mb-2">
-                {item.title}
-              </h3>
-              <p className="text-muted text-sm">{item.summary}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Coursework Highlights */}
-      <section className="mb-20 md:mb-28">
-        <div className="flex items-center justify-between mb-8">
-          <SectionHeading>Coursework</SectionHeading>
+          <SectionHeading>Highlighted Coursework</SectionHeading>
           <Link
             href="/about"
             className="text-muted hover:text-text text-sm transition-colors"

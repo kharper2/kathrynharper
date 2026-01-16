@@ -10,8 +10,9 @@ export interface ExperienceEntry {
   dates: string;
   location?: string;
   icon: string; // simple-icons key or path to /public/logos/*.svg
+  description?: string;
   tags?: string[];
-  highlights: string[];
+  highlights?: string[];
   tech?: string;
   link?: string;
   content?: string;

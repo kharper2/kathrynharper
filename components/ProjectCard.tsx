@@ -1,12 +1,9 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import Tag from './Tag';
 import GitHubIcon from './icons/GitHubIcon';
 import ExternalLinkIcon from './icons/ExternalLinkIcon';
-import DocumentIcon from './icons/DocumentIcon';
 
 interface ProjectCardProps {
-  slug: string;
   title: string;
   description: string;
   tags?: string[];
@@ -23,14 +20,11 @@ const getLinkIcon = (label: string) => {
   const labelLower = label.toLowerCase();
   if (labelLower.includes('github')) {
     return <GitHubIcon className="w-4 h-4" />;
-  } else if (labelLower.includes('read more') || labelLower.includes('read')) {
-    return <DocumentIcon className="w-4 h-4" />;
   }
   return <ExternalLinkIcon className="w-4 h-4" />;
 };
 
 export default function ProjectCard({
-  slug,
   title,
   description,
   tags,
@@ -70,7 +64,7 @@ export default function ProjectCard({
 
           {/* Links */}
           {links && links.length > 0 && (
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mt-3">
               {links.map((link, idx) => (
                 <a
                   key={idx}
@@ -83,13 +77,6 @@ export default function ProjectCard({
                   <span>{link.label}</span>
                 </a>
               ))}
-              <Link
-                href={`/projects/${slug}`}
-                className="flex items-center gap-2 text-sm text-muted hover:text-text transition-colors"
-              >
-                <DocumentIcon className="w-4 h-4" />
-                <span>Read More</span>
-              </Link>
             </div>
           )}
         </div>
@@ -97,16 +84,14 @@ export default function ProjectCard({
         {/* Right: Banner/Visual */}
         {banner && (
           <div className="flex-shrink-0 w-full md:w-80">
-            <Link href={`/projects/${slug}`}>
-              <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden border border-border">
-                <Image
-                  src={banner}
-                  alt={title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </Link>
+            <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden border border-border">
+              <Image
+                src={banner}
+                alt={title}
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         )}
       </div>

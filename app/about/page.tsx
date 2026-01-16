@@ -34,32 +34,14 @@ export default function AboutPage() {
         </h1>
       </div>
 
-      <div className="prose max-w-none mb-16">
-        <p className="text-lg leading-relaxed mb-4">
-          I'm a software engineer and researcher passionate about building
-          technology that makes a meaningful impact. My work spans machine
-          learning, distributed systems, and human-centered design, with a
-          particular interest in applications that improve healthcare outcomes
-          and educational access.
-        </p>
-        <p className="text-lg leading-relaxed mb-4">
-          Throughout my career, I've worked at the intersection of research and
-          industry, translating academic insights into production systems. I
-          believe in the power of thoughtful engineering—code that is not just
-          functional, but maintainable, scalable, and accessible.
-        </p>
-        <p className="text-lg leading-relaxed mb-4">
-          When I'm not coding, I'm often thinking about how to make computer
-          science education more inclusive and engaging. I've organized
-          hackathons, mentored students, and developed curriculum that brings
-          technical concepts to life through hands-on projects.
-        </p>
-        <p className="text-lg leading-relaxed mb-4">
-          Outside of work, I enjoy solving Rubik's cubes and playing poker and
-          card games—activities that combine pattern recognition, strategy, and
-          a bit of friendly competition.
-        </p>
-      </div>
+          <div className="prose max-w-none mb-16">
+            <p className="text-lg leading-relaxed mb-4">
+              Hey, I'm Kathryn and I study CS at Harvard. I'm focused on ML/AI and the systems that make it work reliably at scale—I've bounced between research and engineering, but I'm happiest when I'm building something concrete and iterating fast.
+            </p>
+            <p className="text-lg leading-relaxed mb-4">
+              Outside of class, I'm around HackHarvard, Harvard SEDS / Satellite Team, Poker Club, the Tech and Global Health Initiative, and the Slavic Language Program. I love poker and basically any card game. I also solve Rubik's cubes while thinking, which is really just a socially acceptable way to fidget and look productive.
+            </p>
+          </div>
 
       {/* Coursework Section */}
       <section className="mb-16">
@@ -78,14 +60,14 @@ export default function AboutPage() {
         <SectionHeading>Contact</SectionHeading>
         <div className="mt-8 flex items-center gap-6">
           <a
-            href="mailto:kathryn@example.com"
+            href="mailto:kharper@college.harvard.edu"
             className="text-muted hover:text-text transition-colors"
             aria-label="Email"
           >
             <EmailIcon className="w-6 h-6" />
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/kharper2"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted hover:text-text transition-colors"
@@ -94,7 +76,7 @@ export default function AboutPage() {
             <GitHubIcon className="w-6 h-6" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/harperkathryn/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted hover:text-text transition-colors"
