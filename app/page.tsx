@@ -33,11 +33,11 @@ export default async function Home() {
   // Get specific highlighted items
   const highlightedExperience = experience.filter(e => 
     e.slug === 'mit-ccrg' || e.slug === 'harvard-seas-cs124' || e.slug === 'aws-incident-tooling'
-  ).sort((a, b) => a.order - b.order);
+  ).sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
 
   const selectedProjects = projects.filter(p => 
     p.slug === 'cubesat-flight-software' || p.slug === 'graphene' || p.slug === 'taco'
-  ).sort((a, b) => a.order - b.order);
+  ).sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
 
   const hackHarvardChina = community.find(c => c.slug === 'hackharvard-china');
 
@@ -58,7 +58,7 @@ export default async function Home() {
             </h1>
             <p className="text-lg text-neutral-600 mb-8 leading-relaxed">
               <span className="block">ML/AI, systems, and decision-making.</span>
-              <span className="block">Off-hours: card games and Rubik's cubes.</span>
+              <span className="block">Off-hours: card games and Rubik&apos;s cubes.</span>
             </p>
             
             {/* Social Icons */}

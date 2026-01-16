@@ -36,10 +36,10 @@ export default function AboutPage() {
 
           <div className="prose max-w-none mb-16">
             <p className="text-lg leading-relaxed mb-4">
-              Hey, I'm Kathryn and I study CS at Harvard. I'm focused on ML/AI and the systems that make it work reliably at scale—I've bounced between research and engineering, but I'm happiest when I'm building something concrete and iterating fast.
+              Hey, I&apos;m Kathryn and I study CS at Harvard. I&apos;m focused on ML/AI and the systems that make it work reliably at scale—I&apos;ve bounced between research and engineering, but I&apos;m happiest when I&apos;m building something concrete and iterating fast.
             </p>
             <p className="text-lg leading-relaxed mb-4">
-              Outside of class, I'm around HackHarvard, Harvard SEDS / Satellite Team, Poker Club, the Tech and Global Health Initiative, and the Slavic Language Program. I love poker and basically any card game. I also solve Rubik's cubes while thinking, which is really just a socially acceptable way to fidget and look productive.
+              Outside of class, I&apos;m around HackHarvard, Harvard SEDS / Satellite Team, Poker Club, the Tech and Global Health Initiative, and the Slavic Language Program. I love poker and basically any card game. I also solve Rubik&apos;s cubes while thinking, which is really just a socially acceptable way to fidget and look productive.
             </p>
           </div>
 

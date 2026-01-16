@@ -94,7 +94,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            Off-hours: card games and Rubik's cubes.
+            Off-hours: card games and Rubik&apos;s cubes.
           </p>
         </div>
       </div>
