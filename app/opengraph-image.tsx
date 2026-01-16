@@ -10,13 +10,6 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image() {
-  // Fetch the profile photo and convert to base64
-  const photoData = await fetch(
-    new URL('../public/photo.jpg', import.meta.url)
-  ).then((res) => res.arrayBuffer());
-  const photoBase64 = Buffer.from(photoData).toString('base64');
-  const photoSrc = `data:image/jpeg;base64,${photoBase64}`;
-
   return new ImageResponse(
     (
       <div
@@ -24,79 +17,41 @@ export default async function Image() {
           height: '100%',
           width: '100%',
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: '#FFFFFF',
           fontFamily: 'system-ui, sans-serif',
-          padding: 80,
-          gap: 60,
         }}
       >
-        {/* Profile Photo */}
-        <div
+        <h1
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: 280,
-            height: 280,
-            borderRadius: '50%',
-            overflow: 'hidden',
-            flexShrink: 0,
+            fontSize: 72,
+            fontWeight: 700,
+            color: '#000000',
+            marginBottom: 24,
+            letterSpacing: '-0.02em',
           }}
         >
-          <img
-            src={photoSrc}
-            alt="Kathryn Harper"
-            style={{
-              width: 320,
-              height: 320,
-              objectFit: 'cover',
-              objectPosition: '40% 25%',
-            }}
-          />
-        </div>
-
-        {/* Text Content */}
-        <div
+          Kathryn Harper
+        </h1>
+        <p
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
+            fontSize: 32,
+            color: '#666666',
+            marginBottom: 12,
           }}
         >
-          <h1
-            style={{
-              fontSize: 64,
-              fontWeight: 700,
-              color: '#000000',
-              marginBottom: 20,
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Kathryn Harper
-          </h1>
-          <p
-            style={{
-              fontSize: 28,
-              color: '#666666',
-              marginBottom: 12,
-              lineHeight: 1.4,
-            }}
-          >
-            ML/AI, systems, and decision-making.
-          </p>
-          <p
-            style={{
-              fontSize: 28,
-              color: '#666666',
-              lineHeight: 1.4,
-            }}
-          >
-            Off-hours: card games and Rubik&apos;s cubes.
-          </p>
-        </div>
+          CS at Harvard
+        </p>
+        <p
+          style={{
+            fontSize: 28,
+            color: '#999999',
+          }}
+        >
+          ML/AI, systems, and decision-making
+        </p>
       </div>
     ),
     {
