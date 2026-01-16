@@ -104,24 +104,24 @@ export default async function Home() {
             View all →
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 gap-4 md:gap-6">
           <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 mb-3">
-              <Image src="/logos/MIT-logo.png" alt="MIT" width={64} height={64} className="object-contain" />
+            <div className="h-20 md:h-24 flex items-center justify-center mb-3">
+              <Image src="/logos/MIT-logo.png" alt="MIT" width={96} height={96} className="object-contain max-h-full w-auto" />
             </div>
-            <p className="text-sm font-medium">ML Research at MIT</p>
+            <p className="text-xs md:text-sm font-medium">ML Research at MIT</p>
           </div>
           <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 mb-3">
-              <Image src="/logos/seas.png" alt="Harvard SEAS" width={64} height={64} className="object-contain" />
+            <div className="h-20 md:h-24 flex items-center justify-center mb-3">
+              <Image src="/logos/seas.png" alt="Harvard SEAS" width={64} height={64} className="object-contain max-h-full w-auto" />
             </div>
-            <p className="text-sm font-medium">Harvard Teaching Fellow</p>
+            <p className="text-xs md:text-sm font-medium">Harvard Teaching Fellow</p>
           </div>
           <div className="flex flex-col items-center text-center">
-            <div className="w-20 h-16 mb-3">
-              <Image src="/logos/Amazon-Smile-Logo-PNG-Photos.png" alt="AWS" width={80} height={64} className="object-contain" />
+            <div className="h-20 md:h-24 flex items-center justify-center mb-3">
+              <Image src="/logos/Amazon-Smile-Logo-PNG-Photos.png" alt="AWS" width={140} height={100} className="object-contain max-h-full w-auto" />
             </div>
-            <p className="text-sm font-medium">AWS Intern</p>
+            <p className="text-xs md:text-sm font-medium">AWS Intern</p>
           </div>
         </div>
       </section>
