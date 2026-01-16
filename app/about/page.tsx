@@ -8,10 +8,27 @@ export const metadata = {
   description: 'About Kathryn Harper',
 };
 
+const courses = [
+  { name: 'Big Data Algorithms', code: 'COMPSCI 2241', school: 'Harvard', highlight: true },
+  { name: 'Data Structures and Algorithms', code: 'COMPSCI 124', school: 'Harvard', highlight: true },
+  { name: 'Distributed Computing', code: 'COMPSCI 262', school: 'Harvard', highlight: true },
+  { name: 'High Performance Computing', code: 'COMPSCI 205', school: 'Harvard', highlight: true },
+  { name: 'Machine Learning', code: 'COMPSCI 181', school: 'Harvard', highlight: true },
+  { name: 'Quantum Learning Theory', code: 'COMPSCI 2233/PHYSICS 272', school: 'Harvard', highlight: true },
+  { name: 'AI and Decision Making in Medicine: From Disease to Therapy', code: 'MIT 6.S983', school: 'MIT', highlight: false },
+  { name: 'Entrepreneurship and Innovation: Practical and Academic Insights', code: 'ENGSCI 94', school: 'Harvard', highlight: false },
+  { name: 'Game Theory and Economic Applications', code: 'ECON 1052', school: 'Harvard', highlight: false },
+  { name: 'Probability', code: 'STAT 110', school: 'Harvard', highlight: false },
+  { name: 'Software Engineering with Generative AI', code: 'COMPSCI 1060', school: 'Harvard', highlight: false },
+  { name: 'Systems Programming and Machine Organization', code: 'COMPSCI 61', school: 'Harvard', highlight: false },
+  { name: 'Theoretical Computer Science', code: 'COMPSCI 121', school: 'Harvard', highlight: false },
+  { name: 'Vector Calculus and Linear Algebra', code: 'MATH 22A', school: 'Harvard', highlight: false },
+];
+
 export default function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-      <div className="mb-16">
+      <div className="mb-12">
         <h1 className="text-4xl md:text-5xl font-heading font-semibold mb-4">
           About
         </h1>
@@ -43,6 +60,19 @@ export default function AboutPage() {
           a bit of friendly competition.
         </p>
       </div>
+
+      {/* Coursework Section */}
+      <section className="mb-16">
+        <SectionHeading>Coursework</SectionHeading>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
+          {courses.map((course) => (
+            <div key={course.code} className="border border-neutral-200 rounded-lg p-3">
+              <p className="font-medium text-sm">{course.name}</p>
+              <p className="text-xs text-neutral-500">{course.code}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section>
         <SectionHeading>Contact</SectionHeading>

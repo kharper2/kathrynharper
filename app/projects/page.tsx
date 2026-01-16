@@ -17,8 +17,8 @@ export default async function ProjectsPage() {
   ).sort();
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-      <div className="mb-16">
+    <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
+      <div className="mb-12">
         <h1 className="text-4xl md:text-5xl font-heading font-semibold mb-4">
           Projects
         </h1>

@@ -11,6 +11,15 @@ import GitHubIcon from '@/components/icons/GitHubIcon';
 import LinkedInIcon from '@/components/icons/LinkedInIcon';
 import type { Metadata } from 'next';
 
+const highlightedCourses = [
+  { name: 'Big Data Algorithms', code: 'COMPSCI 2241', school: 'Harvard' },
+  { name: 'Data Structures and Algorithms', code: 'COMPSCI 124', school: 'Harvard' },
+  { name: 'Distributed Computing', code: 'COMPSCI 262', school: 'Harvard' },
+  { name: 'High Performance Computing', code: 'COMPSCI 205', school: 'Harvard' },
+  { name: 'Machine Learning', code: 'COMPSCI 181', school: 'Harvard' },
+  { name: 'Quantum Learning Theory', code: 'COMPSCI 2233/PHYSICS 272', school: 'Harvard' },
+];
+
 export const metadata: Metadata = {
   title: 'Home',
   description: 'Kathryn Harper - Building impactful technology at the intersection of machine learning, systems, and human-centered design.',
@@ -159,7 +168,28 @@ export default async function Home() {
               <h3 className="text-lg font-heading font-medium mb-2">
                 {item.title}
               </h3>
-              <p className="text-muted text-sm">{item.description}</p>
+              <p className="text-muted text-sm">{item.summary}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Coursework Highlights */}
+      <section className="mb-20 md:mb-28">
+        <div className="flex items-center justify-between mb-8">
+          <SectionHeading>Coursework</SectionHeading>
+          <Link
+            href="/about"
+            className="text-muted hover:text-text text-sm transition-colors"
+          >
+            View all →
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {highlightedCourses.map((course) => (
+            <div key={course.code} className="border border-border rounded-lg p-3">
+              <p className="font-medium text-sm">{course.name}</p>
+              <p className="text-xs text-muted">{course.code}</p>
             </div>
           ))}
         </div>

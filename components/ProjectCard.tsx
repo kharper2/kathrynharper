@@ -40,26 +40,28 @@ export default function ProjectCard({
   banner,
 }: ProjectCardProps) {
   return (
-    <div className="border-b border-border py-8 last:border-0">
+    <div className="border-b border-border py-6 last:border-0">
       <div className="flex flex-col md:flex-row gap-8">
         {/* Left: Text content */}
         <div className="flex-1">
-          <div className="flex items-baseline gap-3 mb-2">
-            <h3 className="text-2xl font-heading font-semibold">
-              {title}
-            </h3>
-            {year && (
-              <span className="text-sm text-muted">{year}</span>
-            )}
+          <div className="mb-2">
+            <div className="flex items-baseline gap-3 mb-1">
+              <h3 className="text-lg font-heading font-semibold">
+                {title}
+              </h3>
+              {year && (
+                <span className="text-sm text-muted">{year}</span>
+              )}
+            </div>
           </div>
           
-          <p className="text-muted text-sm leading-relaxed mb-4">
+          <p className="text-muted text-sm mb-3">
             {description}
           </p>
 
           {/* Tech stack tags */}
           {(techStack || tags) && (
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mt-2">
               {(techStack || tags || []).map((tag) => (
                 <Tag key={tag}>{tag}</Tag>
               ))}

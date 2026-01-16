@@ -3,20 +3,25 @@ import path from 'path';
 import matter from 'gray-matter';
 
 export interface CommunityEntry {
+  slug: string;
+  order: number;
   title: string;
-  description: string;
-  category: 'Hackathons & CS Education' | 'Leadership / Organizing' | 'Workshops / Talks';
-  metrics?: {
-    attendees?: number;
-    mentors?: number;
-    schools?: number;
-    countries?: number;
-  };
+  role: string;
+  dates: string;
+  location?: string;
+  summary: string;
+  impact?: string;
+  coverImage: string;
+  coverAlt: string;
+  coverPosition?: string;
   links?: {
     label: string;
     url: string;
   }[];
-  date?: string;
+  // Optional fields for expansion
+  progression?: string; // e.g., "Hacker Experience → Logistics → Finance → Advisory Board"
+  highlights?: string[];
+  rolesTimeline?: string[];
   content?: string;
 }
 
@@ -31,19 +36,23 @@ export async function getCommunity(): Promise<CommunityEntry[]> {
   const entries = fileNames
     .filter((name) => name.endsWith('.mdx'))
     .map((fileName) => {
+      const slug = fileName.replace(/\.mdx$/, '');
       const fullPath = path.join(communityDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data } = matter(fileContents);
 
       return {
+        slug,
         ...data,
       } as CommunityEntry;
+    })
+    .filter((entry) => {
+      // Only include entries with required fields
+      return entry.order !== undefined && entry.coverImage && entry.title;
     });
 
-  // Sort by date (most recent first)
+  // Sort by order field (1..5)
   return entries.sort((a, b) => {
-    const dateA = a.date ? new Date(a.date).getTime() : 0;
-    const dateB = b.date ? new Date(b.date).getTime() : 0;
-    return dateB - dateA;
+    return (a.order || 999) - (b.order || 999);
   });
 }
