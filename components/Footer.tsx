@@ -9,7 +9,8 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>
-            <p className="text-sm text-muted mb-3">Kathryn Harper</p>
+            <p className="text-sm text-muted mb-1">Kathryn Harper</p>
+            <p className="text-xs text-neutral-500 mb-2">Build something tangible from mere thought.</p>
             <div className="flex gap-5">
               <a
                 href="mailto:kharper@college.harvard.edu"
