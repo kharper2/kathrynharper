@@ -7,7 +7,7 @@ export default function ProfilePhoto() {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border border-border bg-section-tint flex items-center justify-center relative">
+    <div className="w-40 h-40 md:w-60 md:h-60 rounded-full overflow-hidden border border-border bg-section-tint flex items-center justify-center relative">
       {!imageError ? (
         <Image
           src="/photo.jpg"

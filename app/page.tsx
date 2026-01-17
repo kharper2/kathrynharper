@@ -45,7 +45,7 @@ export default async function Home() {
     <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
       {/* Hero */}
       <section className="mb-24 md:mb-32">
-        <div className="flex flex-col md:flex-row md:items-start md:gap-12 mb-8">
+        <div className="flex flex-col md:flex-row md:items-center md:gap-12 mb-8">
           {/* Photo */}
           <div className="mb-6 md:mb-0 flex-shrink-0">
             <ProfilePhoto />
@@ -61,32 +61,32 @@ export default async function Home() {
               <span className="block">Off-hours: card games and Rubik&apos;s cubes.</span>
             </p>
             
-            {/* Social Icons */}
-            <div className="flex items-center gap-6">
+            {/* Contact Links */}
+            <div className="flex flex-col gap-3">
               <a
                 href="mailto:kharper@college.harvard.edu"
-                className="text-muted hover:text-text transition-colors"
-                aria-label="Email"
+                className="flex items-center gap-3 text-muted hover:text-text transition-colors text-sm"
               >
-                <EmailIcon className="w-6 h-6" />
+                <EmailIcon className="w-5 h-5" />
+                <span>kharper@college.harvard.edu</span>
               </a>
               <a
                 href="https://github.com/kharper2"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted hover:text-text transition-colors"
-                aria-label="GitHub"
+                className="flex items-center gap-3 text-muted hover:text-text transition-colors text-sm"
               >
-                <GitHubIcon className="w-6 h-6" />
+                <GitHubIcon className="w-5 h-5" />
+                <span>github.com/kharper2</span>
               </a>
               <a
                 href="https://www.linkedin.com/in/harperkathryn/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted hover:text-text transition-colors"
-                aria-label="LinkedIn"
+                className="flex items-center gap-3 text-muted hover:text-text transition-colors text-sm"
               >
-                <LinkedInIcon className="w-6 h-6" />
+                <LinkedInIcon className="w-5 h-5" />
+                <span>linkedin.com/in/harperkathryn</span>
               </a>
             </div>
           </div>

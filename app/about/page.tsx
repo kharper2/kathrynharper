@@ -1,7 +1,4 @@
 import SectionHeading from '@/components/SectionHeading';
-import EmailIcon from '@/components/icons/EmailIcon';
-import GitHubIcon from '@/components/icons/GitHubIcon';
-import LinkedInIcon from '@/components/icons/LinkedInIcon';
 
 export const metadata = {
   title: 'About',
@@ -56,36 +53,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section>
-        <SectionHeading>Contact</SectionHeading>
-        <div className="mt-8 flex items-center gap-6">
-          <a
-            href="mailto:kharper@college.harvard.edu"
-            className="text-muted hover:text-text transition-colors"
-            aria-label="Email"
-          >
-            <EmailIcon className="w-6 h-6" />
-          </a>
-          <a
-            href="https://github.com/kharper2"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted hover:text-text transition-colors"
-            aria-label="GitHub"
-          >
-            <GitHubIcon className="w-6 h-6" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/harperkathryn/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted hover:text-text transition-colors"
-            aria-label="LinkedIn"
-          >
-            <LinkedInIcon className="w-6 h-6" />
-          </a>
-        </div>
-      </section>
     </div>
   );
 }
