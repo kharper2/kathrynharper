@@ -4,6 +4,7 @@ import GitHubIcon from './icons/GitHubIcon';
 import ExternalLinkIcon from './icons/ExternalLinkIcon';
 
 interface ProjectCardProps {
+  slug?: string;
   title: string;
   description: string;
   tags?: string[];
@@ -25,6 +26,7 @@ const getLinkIcon = (label: string) => {
 };
 
 export default function ProjectCard({
+  slug,
   title,
   description,
   tags,
@@ -34,7 +36,7 @@ export default function ProjectCard({
   banner,
 }: ProjectCardProps) {
   return (
-    <div className="border-b border-border py-6 last:border-0">
+    <div id={slug} className="border-b border-border py-6 last:border-0 scroll-mt-24 transition-all duration-200 hover:scale-[1.01] hover:-translate-y-1 cursor-default">
       <div className="flex flex-col md:flex-row gap-8">
         {/* Left: Text content */}
         <div className="flex-1">

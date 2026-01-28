@@ -105,24 +105,24 @@ export default async function Home() {
           </Link>
         </div>
         <div className="grid grid-cols-3 gap-4 md:gap-6">
-          <div className="flex flex-col items-center text-center">
+          <Link href="/experience#mit-ccrg" className="flex flex-col items-center text-center transition-all duration-200 hover:scale-[1.05] hover:-translate-y-1 cursor-pointer">
             <div className="h-20 md:h-24 flex items-center justify-center mb-3">
               <Image src="/logos/MIT-logo.png" alt="MIT" width={96} height={96} className="object-contain max-h-full w-auto" />
             </div>
             <p className="text-xs md:text-sm font-medium">ML Research at MIT</p>
-          </div>
-          <div className="flex flex-col items-center text-center">
+          </Link>
+          <Link href="/experience#harvard-seas-cs124" className="flex flex-col items-center text-center transition-all duration-200 hover:scale-[1.05] hover:-translate-y-1 cursor-pointer">
             <div className="h-20 md:h-24 flex items-center justify-center mb-3">
               <Image src="/logos/seas.png" alt="Harvard SEAS" width={64} height={64} className="object-contain max-h-full w-auto" />
             </div>
             <p className="text-xs md:text-sm font-medium">Harvard Teaching Fellow</p>
-          </div>
-          <div className="flex flex-col items-center text-center">
+          </Link>
+          <Link href="/experience#aws-incident-tooling" className="flex flex-col items-center text-center transition-all duration-200 hover:scale-[1.05] hover:-translate-y-1 cursor-pointer">
             <div className="h-20 md:h-24 flex items-center justify-center mb-3">
               <Image src="/logos/Amazon-Smile-Logo-PNG-Photos.png" alt="AWS" width={140} height={100} className="object-contain max-h-full w-auto" />
             </div>
             <p className="text-xs md:text-sm font-medium">AWS Intern</p>
-          </div>
+          </Link>
         </div>
       </section>
 
@@ -138,7 +138,7 @@ export default async function Home() {
           </Link>
         </div>
         {hackHarvardChina && (
-          <div className="border-b border-border pb-6">
+          <Link href="/community#hackharvard-china" className="block border-b border-border pb-6 transition-all duration-200 hover:scale-[1.01] hover:-translate-y-1 cursor-pointer">
             <h3 className="text-lg font-heading font-medium mb-1">
               {hackHarvardChina.title}
             </h3>
@@ -149,7 +149,7 @@ export default async function Home() {
               <p className="text-sm font-medium text-neutral-700 mb-2">{hackHarvardChina.impact}</p>
             )}
             <p className="text-sm text-muted">{hackHarvardChina.summary}</p>
-          </div>
+          </Link>
         )}
       </section>
 
@@ -166,9 +166,9 @@ export default async function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {selectedProjects.map((project) => (
-            <div key={project.slug} className="group">
+            <Link key={project.slug} href={`/projects#${project.slug}`} className="group block transition-all duration-200 hover:scale-[1.03] hover:-translate-y-1">
               {project.banner && (
-                <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border border-border mb-3">
+                <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border border-border mb-3 transition-shadow duration-200 group-hover:shadow-lg">
                   <Image
                     src={project.banner}
                     alt={project.title}
@@ -178,7 +178,7 @@ export default async function Home() {
                 </div>
               )}
               <p className="text-sm font-medium text-center">{project.title}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -196,7 +196,7 @@ export default async function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {highlightedCourses.map((course) => (
-            <div key={course.code} className="border border-border rounded-lg p-3">
+            <div key={course.code} className="border border-border rounded-lg p-3 transition-all duration-200 hover:border-neutral-300 hover:scale-[1.03] hover:-translate-y-1 cursor-default">
               <p className="font-medium text-sm">{course.name}</p>
               <p className="text-xs text-muted">{course.code}</p>
             </div>

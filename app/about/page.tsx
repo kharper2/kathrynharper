@@ -45,7 +45,7 @@ export default function AboutPage() {
         <SectionHeading>Coursework</SectionHeading>
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
           {courses.map((course) => (
-            <div key={course.code} className="border border-neutral-200 rounded-lg p-3">
+            <div key={course.code} className="border border-neutral-200 rounded-lg p-3 transition-all duration-200 hover:border-neutral-300 hover:scale-[1.03] hover:-translate-y-1 cursor-default">
               <p className="font-medium text-sm">{course.name}</p>
               <p className="text-xs text-neutral-500">{course.code}</p>
             </div>

@@ -32,6 +32,7 @@ export default async function ProjectsPage() {
         {projects.map((project) => (
           <ProjectCard
             key={project.slug}
+            slug={project.slug}
             title={project.title}
             description={project.description}
             tags={project.tags}

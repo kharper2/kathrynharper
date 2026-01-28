@@ -10,7 +10,7 @@ export default function CommunityEntry({ entry, index }: CommunityEntryProps) {
   const reverse = index % 2 === 1;
 
   return (
-    <section className="py-12 border-b border-[#D1D5DE] last:border-0">
+    <section id={entry.slug} className="py-12 border-b border-[#D1D5DE] last:border-0 scroll-mt-24 transition-all duration-200 hover:scale-[1.01] hover:-translate-y-1 cursor-default">
       <div className="mx-auto w-full max-w-4xl px-6">
         <div
           className={`grid grid-cols-1 md:grid-cols-12 md:gap-12 items-start ${

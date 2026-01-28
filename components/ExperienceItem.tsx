@@ -7,7 +7,7 @@ interface ExperienceItemProps {
 
 export default function ExperienceItem({ entry }: ExperienceItemProps) {
   return (
-    <div className="border-b border-border py-8 last:border-0">
+    <div id={entry.slug} className="border-b border-border py-8 last:border-0 scroll-mt-24 transition-all duration-200 hover:scale-[1.01] hover:-translate-y-1 cursor-default">
       <div className="flex gap-8">
         {/* Left: Icon */}
         <div className="flex-shrink-0 flex items-center justify-center w-24">
