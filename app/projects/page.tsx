@@ -37,7 +37,7 @@ export default async function ProjectsPage() {
             description={project.description}
             category={project.category}
             tags={project.tags}
-            year={project.year || project.date?.split('-')[0]}
+            year={project.year?.toString() || project.date?.split('-')[0]}
             impact={project.impact}
             location={project.location}
             techStack={project.techStack}
