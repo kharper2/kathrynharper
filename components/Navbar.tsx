@@ -8,8 +8,7 @@ const navItems = [
   { href: '/', label: 'Home' },
   { href: '/experience', label: 'Experience' },
   { href: '/projects', label: 'Projects' },
-  { href: '/community', label: 'Community' },
-  { href: '/about', label: 'About' },
+  { href: '/about', label: 'Campus' },
 ];
 
 export default function Navbar() {

@@ -7,8 +7,11 @@ interface ProjectCardProps {
   slug?: string;
   title: string;
   description: string;
+  category?: 'Software' | 'Event' | 'Research';
   tags?: string[];
   year?: string;
+  impact?: string;
+  location?: string;
   techStack?: string[];
   links?: {
     label: string;
@@ -29,8 +32,11 @@ export default function ProjectCard({
   slug,
   title,
   description,
+  category,
   tags,
   year,
+  impact,
+  location,
   techStack,
   links,
   banner,
@@ -41,15 +47,29 @@ export default function ProjectCard({
         {/* Left: Text content */}
         <div className="flex-1">
           <div className="mb-2">
-            <div className="flex items-baseline gap-3 mb-1">
+            <div className="flex items-baseline gap-3 mb-1 flex-wrap">
               <h3 className="text-lg font-heading font-semibold">
                 {title}
               </h3>
+              {category && (
+                <span className="text-xs px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-600 font-medium">
+                  {category}
+                </span>
+              )}
               {year && (
                 <span className="text-sm text-muted">{year}</span>
               )}
             </div>
+            {/* Location for event-type projects */}
+            {location && (
+              <p className="text-sm text-muted">{location}</p>
+            )}
           </div>
+          
+          {/* Impact line for events */}
+          {impact && (
+            <p className="text-sm font-medium text-neutral-700 mb-2">{impact}</p>
+          )}
           
           <p className="text-muted text-sm mb-3">
             {description}

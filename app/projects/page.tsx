@@ -5,7 +5,7 @@ import ProjectCard from '@/components/ProjectCard';
 
 export const metadata = {
   title: 'Projects',
-  description: 'Selected projects in machine learning, systems, and web development',
+  description: 'Selected projects and events in machine learning, systems, web development, and hackathon organizing',
 };
 
 export default async function ProjectsPage() {
@@ -23,7 +23,7 @@ export default async function ProjectsPage() {
           Projects
         </h1>
         <p className="text-muted text-lg">
-          Selected work across machine learning, systems, and web development.
+          Selected work across machine learning, systems, web development, and event organizing.
         </p>
       </div>
 
@@ -35,8 +35,11 @@ export default async function ProjectsPage() {
             slug={project.slug}
             title={project.title}
             description={project.description}
+            category={project.category}
             tags={project.tags}
             year={project.year || project.date?.split('-')[0]}
+            impact={project.impact}
+            location={project.location}
             techStack={project.techStack}
             links={project.links}
             banner={project.banner || project.images?.[0]}

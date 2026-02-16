@@ -7,9 +7,13 @@ export interface Project {
   title: string;
   description: string;
   order?: number;
+  category?: 'Software' | 'Event' | 'Research'; // For distinguishing project types
   tags?: string[];
   date?: string;
-  year?: string;
+  year?: string | number;
+  impact?: string; // For event-type projects (e.g., "750+ attendees")
+  role?: string; // For event-type projects
+  location?: string;
   problem?: string;
   approach?: string;
   results?: string;
@@ -46,16 +50,22 @@ export async function getProjects(): Promise<Project[]> {
       } as Project;
     });
 
+  // Helper to extract the earliest year from year field
+  // Handles: "2025", "2022–2023", "2023–Present", or numeric 2025
+  const getEarliestYear = (yearVal?: string | number): number => {
+    if (!yearVal) return 0;
+    // If it's already a number, return it
+    if (typeof yearVal === 'number') return yearVal;
+    // Extract the first 4-digit year from the string
+    const match = String(yearVal).match(/(\d{4})/);
+    return match ? parseInt(match[1], 10) : 0;
+  };
+
+  // Sort by year (newest first)
   return projects.sort((a, b) => {
-    // Sort by order if available, otherwise by date
-    if (a.order !== undefined && b.order !== undefined) {
-      return a.order - b.order;
-    }
-    if (a.order !== undefined) return -1;
-    if (b.order !== undefined) return 1;
-    const dateA = a.date ? new Date(a.date).getTime() : 0;
-    const dateB = b.date ? new Date(b.date).getTime() : 0;
-    return dateB - dateA;
+    const yearA = getEarliestYear(a.year) || getEarliestYear(a.date);
+    const yearB = getEarliestYear(b.year) || getEarliestYear(b.date);
+    return yearB - yearA; // Descending (newest first)
   });
 }
 
