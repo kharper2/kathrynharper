@@ -43,6 +43,7 @@ export default async function ProjectsPage() {
             techStack={project.techStack}
             links={project.links}
             banner={project.banner || project.images?.[0]}
+            bannerScale={project.bannerScale}
           />
         ))}
       </div>

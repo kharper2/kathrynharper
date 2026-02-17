@@ -24,6 +24,7 @@ export interface Project {
   }[];
   images?: string[];
   banner?: string; // Main banner/visual image for the card
+  bannerScale?: number; // Optional scale factor for banner image (e.g., 1.2 = 120%)
   codeSnippet?: string;
   preview?: string;
 }

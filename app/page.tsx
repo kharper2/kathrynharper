@@ -15,15 +15,18 @@ export const metadata: Metadata = {
 export default function Home() {
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
+    <div className="max-w-4xl mx-auto px-6 pt-16 md:pt-24 pb-8">
       {/* Hero */}
-      <section className="mb-12 md:mb-16">
-        <div className="flex flex-col md:flex-row md:items-start md:gap-12 mb-8">
-          {/* Photo + Contact Links */}
-          <div className="mb-6 md:mb-0 flex-shrink-0 flex flex-col items-center md:items-start">
+      <section className="mb-6 md:mb-8">
+        {/* Mobile: Name + Tagline at top, then Photo + Contact, then Bio */}
+        {/* Desktop: Photo + Contact left, Name + Tagline + Bio right */}
+        
+        <div className="flex flex-row items-start gap-4 md:gap-12 mb-6">
+          {/* Photo + Contact Links (desktop only: contact below photo) */}
+          <div className="flex-shrink-0 flex flex-col">
             <ProfilePhoto />
-            {/* Contact Links */}
-            <div className="flex flex-col gap-2 mt-6">
+            {/* Desktop only: Contact below photo */}
+            <div className="hidden md:flex flex-col gap-2 mt-6">
               <a
                 href="mailto:kharper@college.harvard.edu"
                 className="flex items-center gap-3 text-muted hover:text-text transition-colors text-sm"
@@ -52,29 +55,77 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Text Content + Bio */}
-          <div className="flex-1">
-            <h1 className="text-4xl md:text-6xl font-heading font-semibold mb-6 text-text whitespace-nowrap">
+          {/* Mobile: Name + Tagline + Contact on right */}
+          <div className="md:hidden flex-1 flex flex-col justify-center">
+            <h1 className="text-3xl font-heading font-semibold mb-1 text-text">
               Kathryn Harper
             </h1>
-            <div className="text-sm leading-relaxed space-y-4">
-              <p className="text-text text-base mb-6">
-                <span className="block">ML/AI, systems, and decision-making.</span>
-                <span className="block">Off-hours: card games and Rubik&apos;s cubes.</span>
-              </p>
-              <p className="text-muted mt-8">
+            <p className="text-text text-xs mb-4">
+              <span className="block">ML/AI, systems, and decision-making.</span>
+              <span className="block">Off-hours: card games and Rubik&apos;s cubes.</span>
+            </p>
+            <div className="flex flex-col gap-0.5">
+              <a
+                href="mailto:kharper@college.harvard.edu"
+                className="flex items-center gap-1.5 text-muted hover:text-text transition-colors text-xs"
+              >
+                <EmailIcon className="w-3 h-3" />
+                <span>kharper@college.harvard.edu</span>
+              </a>
+              <a
+                href="https://github.com/kharper2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-muted hover:text-text transition-colors text-xs"
+              >
+                <GitHubIcon className="w-3 h-3" />
+                <span>github.com/kharper2</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/harperkathryn/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-muted hover:text-text transition-colors text-xs"
+              >
+                <LinkedInIcon className="w-3 h-3" />
+                <span>linkedin.com/in/harperkathryn</span>
+              </a>
+            </div>
+          </div>
+          
+          {/* Desktop: Name + Tagline + Bio on right */}
+          <div className="hidden md:block flex-1">
+            <h1 className="text-6xl font-heading font-semibold mb-4 text-text">
+              Kathryn Harper
+            </h1>
+            <p className="text-text text-base mb-6">
+              <span className="block">ML/AI, systems, and decision-making.</span>
+              <span className="block">Off-hours: card games and Rubik&apos;s cubes.</span>
+            </p>
+            <div className="text-sm leading-relaxed space-y-4 text-muted">
+              <p>
                 Hey, I&apos;m Kathryn. Thanks for stopping by. I&apos;m a junior at Harvard pursuing an AB/SM in Computer Science. Interested in AI/ML, systems, healthcare, and game theory. Proud Chicagoan (the city, not the burbs). Adrenaline junkie, poker/card-game enthusiast, and habitual Rubik&apos;s-cube fidgeter. Future Forbes 30 Under 30 to prison pipeline (kidding… mostly).
               </p>
-              <p className="text-muted">
+              <p>
                 When I&apos;m not coding, you&apos;ll probably find me skiing, playing violin, or assembling a charcuterie board.
               </p>
             </div>
           </div>
         </div>
+        
+        {/* Mobile only: Bio below */}
+        <div className="md:hidden text-xs leading-relaxed space-y-3 text-muted">
+          <p>
+            Hey, I&apos;m Kathryn. Thanks for stopping by. I&apos;m a junior at Harvard pursuing an AB/SM in Computer Science. Interested in AI/ML, systems, healthcare, and game theory. Proud Chicagoan (the city, not the burbs). Adrenaline junkie, poker/card-game enthusiast, and habitual Rubik&apos;s-cube fidgeter. Future Forbes 30 Under 30 to prison pipeline (kidding… mostly).
+          </p>
+          <p>
+            When I&apos;m not coding, you&apos;ll probably find me skiing, playing violin, or assembling a charcuterie board.
+          </p>
+        </div>
       </section>
 
       {/* Current */}
-      <section className="mb-20 md:mb-28">
+      <section>
         <div className="mb-8">
           <SectionHeading>Current</SectionHeading>
         </div>
