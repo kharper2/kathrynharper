@@ -18,11 +18,22 @@ export default function Home() {
     <div className="max-w-4xl mx-auto px-6 pt-16 md:pt-24 pb-8">
       {/* Hero */}
       <section className="mb-6 md:mb-8">
-        {/* Mobile: Name + Tagline at top, then Photo + Contact, then Bio */}
+        {/* Mobile: Name + Tagline above, Photo + Contact side by side, Bio below */}
         {/* Desktop: Photo + Contact left, Name + Tagline + Bio right */}
         
-        <div className="flex flex-row items-start gap-4 md:gap-12 mb-6">
-          {/* Photo + Contact Links (desktop only: contact below photo) */}
+        {/* Mobile only: Name + Tagline at top */}
+        <div className="md:hidden mb-4">
+          <h1 className="text-3xl font-heading font-semibold mb-1 text-text">
+            Kathryn Harper
+          </h1>
+          <p className="text-text text-xs">
+            <span className="block">ML/AI, systems, and decision-making.</span>
+            <span className="block">Off-hours: card games and Rubik&apos;s cubes.</span>
+          </p>
+        </div>
+        
+        <div className="flex flex-row items-center md:items-start gap-4 md:gap-12 mb-6">
+          {/* Photo */}
           <div className="flex-shrink-0 flex flex-col">
             <ProfilePhoto />
             {/* Desktop only: Contact below photo */}
@@ -55,42 +66,33 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Mobile: Name + Tagline + Contact on right */}
-          <div className="md:hidden flex-1 flex flex-col justify-center">
-            <h1 className="text-3xl font-heading font-semibold mb-1 text-text">
-              Kathryn Harper
-            </h1>
-            <p className="text-text text-xs mb-4">
-              <span className="block">ML/AI, systems, and decision-making.</span>
-              <span className="block">Off-hours: card games and Rubik&apos;s cubes.</span>
-            </p>
-            <div className="flex flex-col gap-0.5">
-              <a
-                href="mailto:kharper@college.harvard.edu"
-                className="flex items-center gap-1.5 text-muted hover:text-text transition-colors text-xs"
-              >
-                <EmailIcon className="w-3 h-3" />
-                <span>kharper@college.harvard.edu</span>
-              </a>
-              <a
-                href="https://github.com/kharper2"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-muted hover:text-text transition-colors text-xs"
-              >
-                <GitHubIcon className="w-3 h-3" />
-                <span>github.com/kharper2</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/harperkathryn/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-muted hover:text-text transition-colors text-xs"
-              >
-                <LinkedInIcon className="w-3 h-3" />
-                <span>linkedin.com/in/harperkathryn</span>
-              </a>
-            </div>
+          {/* Mobile only: Contact links to the right of photo */}
+          <div className="md:hidden flex flex-col gap-1 justify-center">
+            <a
+              href="mailto:kharper@college.harvard.edu"
+              className="flex items-center gap-2 text-muted hover:text-text transition-colors text-xs"
+            >
+              <EmailIcon className="w-3 h-3" />
+              <span>kharper@college.harvard.edu</span>
+            </a>
+            <a
+              href="https://github.com/kharper2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-muted hover:text-text transition-colors text-xs"
+            >
+              <GitHubIcon className="w-3 h-3" />
+              <span>github.com/kharper2</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/harperkathryn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-muted hover:text-text transition-colors text-xs"
+            >
+              <LinkedInIcon className="w-3 h-3" />
+              <span>linkedin.com/in/harperkathryn</span>
+            </a>
           </div>
           
           {/* Desktop: Name + Tagline + Bio on right */}

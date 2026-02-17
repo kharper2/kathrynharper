@@ -19,6 +19,7 @@ interface ProjectCardProps {
   }[];
   banner?: string;
   bannerScale?: number;
+  bannerPosition?: string;
 }
 
 const getLinkIcon = (label: string) => {
@@ -42,6 +43,7 @@ export default function ProjectCard({
   links,
   banner,
   bannerScale,
+  bannerPosition,
 }: ProjectCardProps) {
   return (
     <div id={slug} className="border-b border-border py-6 last:border-0 scroll-mt-24 transition-all duration-200 hover:scale-[1.01] hover:-translate-y-1 cursor-default">
@@ -114,7 +116,10 @@ export default function ProjectCard({
                 alt={title}
                 fill
                 className="object-cover"
-                style={bannerScale ? { transform: `scale(${bannerScale})` } : undefined}
+                style={{
+                  ...(bannerScale && { transform: `scale(${bannerScale})` }),
+                  ...(bannerPosition && { objectPosition: bannerPosition }),
+                }}
               />
             </div>
           </div>

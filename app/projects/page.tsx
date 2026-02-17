@@ -44,6 +44,7 @@ export default async function ProjectsPage() {
             links={project.links}
             banner={project.banner || project.images?.[0]}
             bannerScale={project.bannerScale}
+            bannerPosition={project.bannerPosition}
           />
         ))}
       </div>
