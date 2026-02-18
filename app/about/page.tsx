@@ -3,7 +3,7 @@ import SectionHeading from '@/components/SectionHeading';
 
 export const metadata = {
   title: 'Campus',
-  description: 'Coursework and campus involvement at Harvard',
+  description: 'Relevant coursework and campus involvement at Harvard',
 };
 
 const extracurriculars = [
@@ -38,6 +38,9 @@ export default function AboutPage() {
         <h1 className="text-4xl md:text-5xl font-heading font-semibold mb-4">
           Campus
         </h1>
+        <p className="text-muted text-lg">
+          Life in and out of the classroom.
+        </p>
       </div>
 
       {/* Extracurriculars Section */}
@@ -57,7 +60,7 @@ export default function AboutPage() {
 
       {/* Coursework Section */}
       <section className="mb-16">
-        <SectionHeading>Coursework</SectionHeading>
+        <SectionHeading>Relevant Coursework</SectionHeading>
         <div className="mt-6 space-y-3">
           {courses.map((course) => (
             <div key={course.code} className="border border-neutral-200 rounded-lg p-3 transition-all duration-200 hover:border-neutral-300 hover:scale-[1.01] hover:-translate-y-0.5 cursor-default flex justify-between items-center">
