@@ -9,7 +9,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Home',
-  description: 'Kathryn Harper — CS at Harvard. ML/AI, systems, and decision-making.',
+  description: 'Kathryn Harper — CS at Harvard. AI/ML, systems, and decision-making.',
 };
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
             Kathryn Harper
           </h1>
           <p className="text-text text-xs">
-            <span className="block">ML/AI, systems, and decision-making.</span>
+            <span className="block">AI/ML, systems, and decision-making.</span>
             <span className="block">Off-hours: card games and Rubik&apos;s cubes.</span>
           </p>
         </div>
@@ -101,7 +101,7 @@ export default function Home() {
               Kathryn Harper
             </h1>
             <p className="text-text text-base mb-6">
-              <span className="block">ML/AI, systems, and decision-making.</span>
+              <span className="block">AI/ML, systems, and decision-making.</span>
               <span className="block">Off-hours: card games and Rubik&apos;s cubes.</span>
             </p>
             <div className="text-sm leading-relaxed space-y-4 text-muted">

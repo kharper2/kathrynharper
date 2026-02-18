@@ -24,19 +24,19 @@ export const metadata: Metadata = {
     default: 'Kathryn Harper',
     template: '%s | Kathryn Harper',
   },
-  description: 'Kathryn Harper — CS at Harvard. ML/AI, systems, and decision-making.',
+  description: 'Kathryn Harper — CS at Harvard. AI/ML, systems, and decision-making.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://kathryn-harper.com',
     siteName: 'Kathryn Harper',
     title: 'Kathryn Harper',
-    description: 'CS at Harvard. ML/AI, systems, and decision-making.',
+    description: 'CS at Harvard. AI/ML, systems, and decision-making.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Kathryn Harper',
-    description: 'CS at Harvard. ML/AI, systems, and decision-making.',
+    description: 'CS at Harvard. AI/ML, systems, and decision-making.',
   },
 };
 

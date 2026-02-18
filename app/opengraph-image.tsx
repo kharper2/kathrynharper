@@ -50,7 +50,7 @@ export default async function Image() {
             color: '#999999',
           }}
         >
-          ML/AI, systems, and decision-making
+          AI/ML, systems, and decision-making
         </p>
       </div>
     ),
