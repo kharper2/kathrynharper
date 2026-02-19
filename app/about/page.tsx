@@ -7,10 +7,11 @@ export const metadata = {
 };
 
 const extracurriculars = [
-  { name: 'AI Safety Team', logo: '/logos/aiist.jpeg' },
-  { name: 'HackHarvard', logo: '/logos/hackharvard_logo.jpeg' },
+  { name: 'AISST', logo: '/logos/aiist.jpeg', url: 'https://aisst.ai/' },
+  { name: 'HackHarvard', logo: '/logos/hackharvard_logo.jpeg', url: 'https://hhuh.io/' },
+  { name: 'Poker Club', logo: '/logos/poker.avif', url: 'https://www.harvardcollegepoker.com/' },
   { name: 'Satellite Team', logo: '/logos/seds.jpeg' },
-  { name: 'Tech and Global Health Initiative', logo: '/logos/tghj.jpeg' },
+  { name: 'TGHI', logo: '/logos/tghj.jpeg', url: 'https://techglobalhealth.org/' },
   { name: 'Wine Society', logo: '/logos/wine.jpg' },
 ];
 
@@ -46,15 +47,32 @@ export default function AboutPage() {
       {/* Extracurriculars Section */}
       <section className="mb-16">
         <SectionHeading>Extracurriculars</SectionHeading>
-        <div className="mt-6 grid grid-cols-3 md:grid-cols-5 gap-4">
-          {extracurriculars.map((club) => (
-            <div key={club.name} className="flex flex-col items-center text-center transition-all duration-200 hover:scale-[1.05] hover:-translate-y-1 cursor-default">
-              <div className="w-16 h-16 flex items-center justify-center mb-2">
-                <Image src={club.logo} alt={club.name} width={56} height={56} className="object-contain" />
+        <div className="mt-6 flex justify-evenly items-start">
+          {extracurriculars.map((club) => {
+            const content = (
+              <>
+                <div className="w-14 h-14 flex items-center justify-center mb-2">
+                  <Image src={club.logo} alt={club.name} width={48} height={48} className="object-contain" />
+                </div>
+                <p className="font-medium text-xs leading-tight max-w-[80px]">{club.name}</p>
+              </>
+            );
+            return club.url ? (
+              <a
+                key={club.name}
+                href={club.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center text-center transition-all duration-200 hover:scale-[1.05] hover:-translate-y-1 cursor-pointer w-24"
+              >
+                {content}
+              </a>
+            ) : (
+              <div key={club.name} className="flex flex-col items-center text-center transition-all duration-200 hover:scale-[1.05] hover:-translate-y-1 cursor-default w-24">
+                {content}
               </div>
-              <p className="font-medium text-xs">{club.name}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
