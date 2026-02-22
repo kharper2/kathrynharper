@@ -106,7 +106,7 @@ export default function Home() {
             </p>
             <div className="text-sm leading-relaxed space-y-4 text-muted">
               <p>
-                Hey, I&apos;m Kathryn. Thanks for stopping by. I&apos;m a junior at Harvard pursuing an AB/SM in Computer Science. Interested in AI/ML, systems, healthcare, and game theory. Proud Chicagoan (the city, not the burbs). Adrenaline junkie, poker/card-game enthusiast, and habitual Rubik&apos;s-cube fidgeter. Future Forbes 30 Under 30 to prison pipeline (kidding… mostly).
+                Hey, I&apos;m Kathryn. Thanks for stopping by. I&apos;m a junior at Harvard pursuing an AB/SM in Computer Science. Interested in AI/ML, systems, healthcare, and game theory. Proud Chicagoan (the city, not the burbs). Adrenaline junkie, poker/card-game enthusiast, and habitual Rubik&apos;s-cube fidgeter.
               </p>
               <p>
                 When I&apos;m not coding, you&apos;ll probably find me skiing, playing violin, or assembling a charcuterie board.
@@ -118,7 +118,7 @@ export default function Home() {
         {/* Mobile only: Bio below */}
         <div className="md:hidden text-xs leading-relaxed space-y-3 text-muted">
           <p>
-            Hey, I&apos;m Kathryn. Thanks for stopping by. I&apos;m a junior at Harvard pursuing an AB/SM in Computer Science. Interested in AI/ML, systems, healthcare, and game theory. Proud Chicagoan (the city, not the burbs). Adrenaline junkie, poker/card-game enthusiast, and habitual Rubik&apos;s-cube fidgeter. Future Forbes 30 Under 30 to prison pipeline (kidding… mostly).
+            Hey, I&apos;m Kathryn. Thanks for stopping by. I&apos;m a junior at Harvard pursuing an AB/SM in Computer Science. Interested in AI/ML, systems, healthcare, and game theory. Proud Chicagoan (the city, not the burbs). Adrenaline junkie, poker/card-game enthusiast, and habitual Rubik&apos;s-cube fidgeter.
           </p>
           <p>
             When I&apos;m not coding, you&apos;ll probably find me skiing, playing violin, or assembling a charcuterie board.
